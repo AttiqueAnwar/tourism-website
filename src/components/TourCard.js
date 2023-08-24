@@ -32,15 +32,15 @@ const theme = createTheme({
         }
     }
 })
-const TourCard =() =>{
+const TourCard =({tour}) =>{
    return( 
     <Grid item xs={3}>
 <ThemeProvider theme={theme}>
         <Paper elevation={3} > 
-        <img className="img" src="https://media.timeout.com/images/105124791/750/422/image.jpg" alt=""/>
+        <img className="img" src={tour.image} alt=""/>
         <Box paddingX={1}>
             <Typography variant="subtitle1" component="h2" >
-                Immerse into the Falls
+               {tour.name}
         <Box
         sx={{
             display:"flex",
@@ -49,7 +49,7 @@ const TourCard =() =>{
         >
             <AccessTime sx={{width:12.5}}/>
             <Typography variant="body2" component="p" marginLeft={0.5}>
-                5 hours
+                {tour.duration} hours
             </Typography>
         </Box>
         <Box 
@@ -60,15 +60,15 @@ const TourCard =() =>{
         >
             <Rating size="small" readOnly name="read-only" value={4.5} precision={0.5}/>
             <Typography variant="body2" component="p" marginLeft={0.5}>
-                4.5
+               {tour.rating}
             </Typography>
             <Typography variant="body3" component="p" marginLeft={0.5}>
-                (655 reviews)
+                ({tour.numberOfReviews} reviews)
             </Typography>
         </Box>
         <Box marginTop={3}>
         <Typography variant="h6" component="h3" marginLeft={0.5}>
-                From C $147
+                From C ${tour.price}
             </Typography>
         </Box>
             </Typography>
